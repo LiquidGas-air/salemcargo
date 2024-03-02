@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="$2y$10$jOt8jtl1S30TyECJbOC8vOfk8fDYkFsKOguJnJ07YveIaHLC9nS2u">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://preview-cargo.ycode.site/images/logos/y-filled.svg">
+  <link rel="apple-touch-icon" sizes="256x256" href="https://preview-cargo.ycode.site/images/ycode-webclip.png">
+  <link href="./css/builder/ycode-generated.css?id=799cbb4e8c5e4a10da13" rel="stylesheet">
+  <link href="./draft/main.css?id=1708339766" rel="stylesheet">
+  <style>
+    .popupcontent {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #4CAF50;
+      padding: 10px 20px;
+      border: 2px solid #46a049;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #46a049;
+    }
+  </style>
+  <style>
+    #overlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background: #999;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+      z-index: 100;
+    }
+
+    #popup {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: #fff;
+      width: 500px;
+      height: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      /*Half the value of width to center div*/
+      margin-top: -250px;
+      margin-left: -250px;
+      /*Half the value of height to center div*/
+      z-index: 200;
+    }
+
+    @media only screen and (max-width: 768px) {
+      #popup {
+        top: 20%;
+        left: auto;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+      }
+    }
+
+    #popupclose {
+      float: right;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .popupcontent {
+      padding: 10px;
+    }
+
+    #button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<div id="overlay"></div>
+<div id="popup">
+  <div class="popupcontrols">
+    <span id="popupclose">X</span>
+  </div>
+  <div class="popupcontent">
+    <h1>Add Tracking Information</h1>
+    <form id="track-form">
+      <div class="form-group">
+        <label for="track_code">Track Code:</label>
+        <input type="text" name="track_code" id="track_code" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" rows="4" required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<body class="min-h-[100%] transform">
+  <div class="contents" id="ycode-generated-app">
+    <!-- [ycode-template-variable:ycode-main-content] -->
+    <div class="contents" id="ycode-main-content" :key="key">
+      <nav class="bg-[white] flex-col flex border-b-[1px] border-[#000000] border-opacity-[10%] pb-[5px] pt-[5px]">
+        <div class="flex flex-col w-[100%] max-w-[1280px] mr-[auto] ml-[auto] pr-[32px] pl-[32px]">
+          <div class="flex flex-col items-stretch">
+            <div class="flex flex-row gap-[12px] justify-between items-center">
+              <div class="flex items-center justify-center ml-[15px]">
+                <img class="transform scale-[2.5] h-[auto] w-[80px] ml-[20px]"
+                  src="https://assets.ycodeapp.com/assets/app43969/Images/8z2tPf7EusrXXBIblDPBRWCPrgL6CEr1xB8ZWjJt.png"
+                  srcset="https://assets.ycodeapp.com/assets/app43969/images/y3rp2BrkziLokGAgUrWVkkIvC0WDe37JvlxdbUCe.png 150w, https://assets.ycodeapp.com/assets/app43969/Images/8z2tPf7EusrXXBIblDPBRWCPrgL6CEr1xB8ZWjJt.png 500w"
+                  sizes="2560px">
+              </div>
+              <div class="flex flex-col items-start">
+                <div class="flex space-x-[32px] sm:hidden items-center">
+                  <div id="button" class="flex flex-row justify-start items-center gap-[5px]">
+                    <i class="inline-block h-[auto] w-[30px] text-[color:var(--65cfa062b5669)]">
+                      <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
+                      </svg>
+                    </i>
+                    <a class="no-underline focus:outline-none text-[20px] text-[color:var(--65cfa062b5669)]">Добавить
+                      заказ</a>
+                  </div>
+                  <div class="flex flex-row justify-start items-center gap-[5px]">
+                    <i class="inline-block w-[24px] h-[auto] text-[color:var(--65cfa062934f6)]">
+                      <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M12.4142 5H21C21.5523 5 22 5.44772 22 6V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5ZM4 7V19H20V7H4Z">
+                        </path>
+                      </svg>
+                    </i>
+                    <a class="no-underline focus:outline-none text-[20px] text-[color:var(--65cfa0629664d)]">Архив</a>
+                  </div>
+                  <div class="flex flex-row justify-start items-center gap-[5px]">
+                    <i class="inline-block w-[24px] h-[auto] text-opacity-[100%] text-[#ff2626]">
+                      <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M5 22C4.44772 22 4 21.5523 4 21V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V6H18V4H6V20H18V18H20V21C20 21.5523 19.5523 22 19 22H5ZM18 16V13H11V11H18V8L23 12L18 16Z">
+                        </path>
+                      </svg>
+                    </i>
+                    <a class="no-underline focus:outline-none text-[20px] text-[color:var(--65cfa062a5200)]">Выйти</a>
+                  </div>
+                </div>
+                <div class="space-x-[32px] sm:flex hidden sm:flex-row sm:items-stretch">
+                  <button v-show="showHideElements['button-menu-65cfe1e2d8b6b']" v-on:click='triggerWorkflow($event)'
+                    class="text-[16px] leading-[24px] font-medium text-[#27272a] flex items-center rounded-[6px] whitespace-nowrap xs:block focus:outline-none pt-[12px] pr-[12px] pb-[12px] pl-[12px]"
+                    id="button-menu-65cfe1e2d8b6b" type="button">
+                    <i v-show="showHideElements['icon-menu-65cfe1e2d8b6d']"
+                      class="inline-block w-[24px] h-[24px] text-[black] sm:h-[35px] sm:w-[35px]"
+                      id="icon-menu-65cfe1e2d8b6d">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor"
+                        stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                      </svg>
+                    </i>
+                    <i v-show="showHideElements['icon-close-65cfe1e2d8b6e']" v-cloak
+                      class="inline-block w-[24px] h-[24px] text-[black]" id="icon-close-65cfe1e2d8b6e">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor"
+                        stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                      </svg>
+                    </i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top: 50px;" v-show="showHideElements['mobile-menu-65cfe1e2d8b6f']" v-cloak
+              class="flex flex-col items-center gap-[32px]" id="mobile-menu-65cfe1e2d8b6f">
+              <div id="button-2" class="flex flex-row justify-start items-center gap-[5px]">
+                <i class="inline-block h-[auto] w-[30px] text-[color:var(--65cfa062b5669)]">
+                  <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
+                  </svg>
+                </i>
+                <a class="no-underline focus:outline-none text-[20px] text-[color:var(--65cfa062b5669)]">Добавить
+                  заказ</a>
+              </div>
+              <div class="flex flex-row justify-start items-center gap-[5px]">
+                <i class="inline-block w-[24px] h-[auto] text-[color:var(--65cfa062934f6)]">
+                  <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12.4142 5H21C21.5523 5 22 5.44772 22 6V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5ZM4 7V19H20V7H4Z">
+                    </path>
+                  </svg>
+                </i>
+                <a class="no-underline focus:outline-none text-[20px] text-[color:var(--65cfa0629664d)]">Архив</a>
+              </div>
+              <div class="flex flex-row justify-start items-center gap-[5px]">
+                <i class="inline-block w-[24px] h-[auto] text-opacity-[100%] text-[#ff2626]">
+                  <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5 22C4.44772 22 4 21.5523 4 21V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V6H18V4H6V20H18V18H20V21C20 21.5523 19.5523 22 19 22H5ZM18 16V13H11V11H18V8L23 12L18 16Z">
+                    </path>
+                  </svg>
+                </i>
+                <a class="no-underline focus:outline-none text-[20px] text-[color:var(--65cfa062a5200)]">Выйти</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section
+        class="flex flex-col pb-[80px] pt-[80px] sm:justify-start sm:items-stretch sm:pt-[30px] pr-[10px] pl-[10px]">
+        <div class="grid gap-[12px] sm:grid-cols-1 grid-cols-3 sm:content-stretch content-stretch">
+          <div
+            class="rounded-[10px] border-[1px] h-[400px] flex flex-col items-center justify-between border-[color:var(--65cfa0629f510)]">
+            <div
+              class="block sm:border-solid sm:rounded-bl-[0px] sm:rounded-br-[0px] sm:rounded-tl-[10px] sm:rounded-tr-[10px] w-[100%] h-[60px] rounded-bl-[0px] rounded-br-[0px] rounded-tl-[10px] rounded-tr-[10px] bg-opacity-[100%] bg-[#666666]">
+              <div class="flex flex-row gap-[12px] items-center h-[100%] justify-between">
+                <span class="text-[20px] ml-[10px] text-[color:var(--65cfa0628e910)]">Text</span>
+                <button
+                  class="text-white text-[14px] tracking-[0.025em] pt-[10px] pr-[20px] pb-[10px] pl-[20px] rounded-[8px] border-[transparent] border-[1px] border-solid focus:outline-none flex h-[100%] items-center bg-[color:var(--65cfa062a5200)]"
+                  type="button"> <span class="text-[18px]">Удалить</span></button>
+              </div>
+            </div>
+            <ul class="flex gap-[4px] pl-[16px] list-outside flex-col items-stretch w-[90%] transform list-disc">
+              <li class="flex flex-row">
+                <div class="flex flex-row justify-start items-center gap-[5px]">
+                  <i class="inline-block h-[auto] w-[30px] text-[color:var(--65cfa062c40cd)]">
+                    <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11.602 13.7599L13.014 15.1719L21.4795 6.7063L22.8938 8.12051L13.014 18.0003L6.65 11.6363L8.06421 10.2221L10.189 12.3469L11.6025 13.7594L11.602 13.7599ZM11.6037 10.9322L16.5563 5.97949L17.9666 7.38977L13.014 12.3424L11.6037 10.9322ZM8.77698 16.5873L7.36396 18.0003L1 11.6363L2.41421 10.2221L3.82723 11.6352L3.82604 11.6363L8.77698 16.5873Z">
+                      </path>
+                    </svg>
+                  </i>
+                  <span class="text-[18px]">
+                    Зарегестрировано клиентом
+                    <br yc-builder-id="wxgahn1f5">
+                    (2000-91-19)
+                  </span>
+                </div>
+              </li>
+              <li class="flex flex-row">
+                <div class="flex flex-row justify-start items-center gap-[5px]">
+                  <i class="inline-block h-[auto] w-[30px] text-[color:var(--65cfa0629c0c4)]">
+                    <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z">
+                      </path>
+                    </svg>
+                  </i>
+                  <span class="text-[18px]">
+                    Зарегестрировано клиентом
+                    <br yc-builder-id="wxgahn1f5">
+                    (2000-91-19)
+                  </span>
+                </div>
+              </li>
+            </ul>
+            <div class="flex flex-row gap-[12px]">
+              <button
+                class="flex flex-row items-center justify-center text-white tracking-[0.025em] pt-[10px] pr-[20px] pl-[20px] rounded-[8px] border-[1px] border-solid inline-block focus:outline-none pb-[10px] mb-[10px] text-[18px] bg-opacity-[100%] bg-[#caba9c] border-[color:var(--65cfa0628a5c4)]"
+                type="button"> <span>Разархивировать</span></button>
+            </div>
+          </div>
+      </section>
+    </div>
+    <!-- [/ycode-template-variable:ycode-main-content] -->
+  </div>
+
+
+  <script type="text/javascript">
+    // Initialize Variables
+    var closePopup = document.getElementById("popupclose");
+    var overlay = document.getElementById("overlay");
+    var popup = document.getElementById("popup");
+    window.addEventListener('DOMContentLoaded', function () {
+      var button = document.getElementById("button");
+      button.onclick = function () {
+        overlay.style.display = 'block';
+        popup.style.display = 'block';
+      }
+    });
+    window.addEventListener('DOMContentLoaded', function () {
+      var button2 = document.getElementById("button-2");
+      button2.onclick = function () {
+        overlay.style.display = 'block';
+        popup.style.display = 'block';
+      }
+    });
+    console.log(button);
+    // Close Popup Event
+    closePopup.onclick = function () {
+      overlay.style.display = 'none';
+      popup.style.display = 'none';
+    };
+    // Show Overlay and Popup
+  </script>
+
+  <div id="yc-lightbox-mount"></div>
+  <script>
+    window.lightbox = []
+  </script>
+  <script>
+    window.animations = []
+  </script>
+  <script>
+    window.sliderSettings = []
+  </script>
+  <script>
+    window.showHideElements = {
+      "button-menu-65cfe1e2d8b6b": true,
+      "icon-menu-65cfe1e2d8b6d": true,
+      "icon-close-65cfe1e2d8b6e": false,
+      "mobile-menu-65cfe1e2d8b6f": false
+    }
+  </script>
+  <script>
+    window.pageWorkflowActions = {
+      "login-submit-button": {
+        "workflow_uid": "65cfa0603b114",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "login-submit-button"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "SUBMIT_FORM",
+          "properties": []
+        }]
+      },
+      "signup-submit-button": {
+        "workflow_uid": "65cfa060412ef",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "signup-submit-button"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "SUBMIT_FORM",
+          "properties": []
+        }]
+      },
+      "reset-password-submit-button": {
+        "workflow_uid": "65cfa06043fa8",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "reset-password-submit-button"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "SUBMIT_FORM",
+          "properties": []
+        }]
+      },
+      "set-new-password-submit-button": {
+        "workflow_uid": "65cfa060467ba",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "set-new-password-submit-button"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "SUBMIT_FORM",
+          "properties": []
+        }]
+      },
+      "button-menu-65cfe1c71be26": {
+        "workflow_uid": "65cfe1c71c076",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "button-menu-65cfe1c71be26"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "TOGGLE_ELEMENT",
+          "properties": [{
+            "const": "ELEMENT_IDS",
+            "value": ["icon-menu-65cfe1c71be28", "icon-close-65cfe1c71be29", "mobile-menu-65cfe1c71be2a"]
+          }]
+        }]
+      },
+      "button-menu-65cfe1e2d8b6b": {
+        "workflow_uid": "65cfe1e2d8de8",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "button-menu-65cfe1e2d8b6b"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "TOGGLE_ELEMENT",
+          "properties": [{
+            "const": "ELEMENT_IDS",
+            "value": ["icon-menu-65cfe1e2d8b6d", "icon-close-65cfe1e2d8b6e", "mobile-menu-65cfe1e2d8b6f"]
+          }]
+        }]
+      },
+      "button-menu-65d332143c273": {
+        "workflow_uid": "65d332143c4be",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "button-menu-65d332143c273"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "TOGGLE_ELEMENT",
+          "properties": [{
+            "const": "ELEMENT_IDS",
+            "value": ["icon-menu-65d332143c275", "icon-close-65d332143c276", "mobile-menu-65d332143c277"]
+          }]
+        }]
+      }
+    }
+  </script>
+  <script class="dataScript">
+    window.animations = []
+  </script>
+  <script class="dataScript">
+    window.showHideElements = {
+      "button-menu-65cfe1e2d8b6b": true,
+      "icon-menu-65cfe1e2d8b6d": true,
+      "icon-close-65cfe1e2d8b6e": false,
+      "mobile-menu-65cfe1e2d8b6f": false
+    }
+  </script>
+  <script class="dataScript">
+    window.pageWorkflowActions = {
+      "login-submit-button": {
+        "workflow_uid": "65cfa0603b114",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "login-submit-button"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "SUBMIT_FORM",
+          "properties": []
+        }]
+      },
+      "signup-submit-button": {
+        "workflow_uid": "65cfa060412ef",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "signup-submit-button"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "SUBMIT_FORM",
+          "properties": []
+        }]
+      },
+      "reset-password-submit-button": {
+        "workflow_uid": "65cfa06043fa8",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "reset-password-submit-button"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "SUBMIT_FORM",
+          "properties": []
+        }]
+      },
+      "set-new-password-submit-button": {
+        "workflow_uid": "65cfa060467ba",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "set-new-password-submit-button"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "SUBMIT_FORM",
+          "properties": []
+        }]
+      },
+      "button-menu-65cfe1c71be26": {
+        "workflow_uid": "65cfe1c71c076",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "button-menu-65cfe1c71be26"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "TOGGLE_ELEMENT",
+          "properties": [{
+            "const": "ELEMENT_IDS",
+            "value": ["icon-menu-65cfe1c71be28", "icon-close-65cfe1c71be29", "mobile-menu-65cfe1c71be2a"]
+          }]
+        }]
+      },
+      "button-menu-65cfe1e2d8b6b": {
+        "workflow_uid": "65cfe1e2d8de8",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "button-menu-65cfe1e2d8b6b"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "TOGGLE_ELEMENT",
+          "properties": [{
+            "const": "ELEMENT_IDS",
+            "value": ["icon-menu-65cfe1e2d8b6d", "icon-close-65cfe1e2d8b6e", "mobile-menu-65cfe1e2d8b6f"]
+          }]
+        }]
+      },
+      "button-menu-65d332143c273": {
+        "workflow_uid": "65d332143c4be",
+        "actions": [{
+          "id": null,
+          "order": 1,
+          "const": "CLICK",
+          "properties": [{
+            "const": "ELEMENT_ID",
+            "value": "button-menu-65d332143c273"
+          }]
+        }, {
+          "id": null,
+          "order": 2,
+          "const": "TOGGLE_ELEMENT",
+          "properties": [{
+            "const": "ELEMENT_IDS",
+            "value": ["icon-menu-65d332143c275", "icon-close-65d332143c276", "mobile-menu-65d332143c277"]
+          }]
+        }]
+      }
+    }
+  </script>
+
+  <script src="./js/swiper-bundle.min.js"></script>
+  <script src="./js/gsap-latest-beta.min.js"></script>
+  <script src="./js/ScrollTrigger.min.js"></script>
+  <script>
+    window.logMonthlyVisits = false
+  </script>
+  <script src="./js/generated.js?id=c2608ec38554a7308b94"></script>
+</body>
+
+</html>
